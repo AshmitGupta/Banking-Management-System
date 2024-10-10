@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addAccount } from '../redux/actions';
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Grid,
+  Container,
+  Paper,
+} from '@mui/material';
 
 const AddAccount = () => {
   const [account, setAccount] = useState({
@@ -17,7 +26,6 @@ const AddAccount = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     dispatch(addAccount(account));
 
     setAccount({
@@ -32,85 +40,112 @@ const AddAccount = () => {
   };
 
   return (
-    <div>
-      <h2>Add New Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Account Number: </label>
-          <input
-            type="text"
-            value={account.account_number}
-            onChange={(e) =>
-              setAccount({ ...account, account_number: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <label>First Name: </label>
-          <input
-            type="text"
-            value={account.first_name}
-            onChange={(e) =>
-              setAccount({ ...account, first_name: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <label>Last Name: </label>
-          <input
-            type="text"
-            value={account.last_name}
-            onChange={(e) =>
-              setAccount({ ...account, last_name: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <label>Date of Birth: </label>
-          <input
-            type="date"
-            value={account.dob}
-            onChange={(e) => setAccount({ ...account, dob: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <label>Checking Account Balance: </label>
-          <input
-            type="number"
-            value={account.c_balance}
-            onChange={(e) =>
-              setAccount({ ...account, c_balance: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <label>Savings Account Balance: </label>
-          <input
-            type="number"
-            value={account.s_balance}
-            onChange={(e) =>
-              setAccount({ ...account, s_balance: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <label>Date of Account Creation: </label>
-          <input
-            type="date"
-            value={account.doa}
-            onChange={(e) => setAccount({ ...account, doa: e.target.value })}
-            required
-          />
-        </div>
-        <button type="submit">Add Account</button>
-      </form>
-    </div>
+    <Container maxWidth="sm">
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 5 }}>
+        <Typography variant="h4" gutterBottom align="center">
+          Add New Account
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                label="Account Number"
+                variant="outlined"
+                fullWidth
+                value={account.account_number}
+                onChange={(e) =>
+                  setAccount({ ...account, account_number: e.target.value })
+                }
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                label="First Name"
+                variant="outlined"
+                fullWidth
+                value={account.first_name}
+                onChange={(e) =>
+                  setAccount({ ...account, first_name: e.target.value })
+                }
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                label="Last Name"
+                variant="outlined"
+                fullWidth
+                value={account.last_name}
+                onChange={(e) =>
+                  setAccount({ ...account, last_name: e.target.value })
+                }
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Date of Birth"
+                variant="outlined"
+                type="date"
+                fullWidth
+                InputLabelProps={{ shrink: true }}
+                value={account.dob}
+                onChange={(e) => setAccount({ ...account, dob: e.target.value })}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Checking Account Balance"
+                variant="outlined"
+                fullWidth
+                type="number"
+                value={account.c_balance}
+                onChange={(e) =>
+                  setAccount({ ...account, c_balance: e.target.value })
+                }
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Savings Account Balance"
+                variant="outlined"
+                fullWidth
+                type="number"
+                value={account.s_balance}
+                onChange={(e) =>
+                  setAccount({ ...account, s_balance: e.target.value })
+                }
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Date of Account Creation"
+                variant="outlined"
+                type="date"
+                fullWidth
+                InputLabelProps={{ shrink: true }}
+                value={account.doa}
+                onChange={(e) => setAccount({ ...account, doa: e.target.value })}
+                required
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Add Account
+          </Button>
+        </Box>
+      </Paper>
+    </Container>
   );
 };
 
