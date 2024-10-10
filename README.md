@@ -49,24 +49,24 @@ This application allows users to manage their bank accounts through a modern web
 
 1. Clone the repository:
 
-   \`\`\`bash
+   ```bash
    git clone https://github.com/your-username/banking-management-system.git
    cd banking-management-system/backend
-   \`\`\`
+   ```
 
 2. Create a Python virtual environment (optional but recommended):
 
-   \`\`\`bash
+   ```bash
    python3 -m venv venv
    source venv/bin/activate  # Linux/MacOS
    venv\Scripts\activate  # Windows
-   \`\`\`
+   ```
 
 3. Install required dependencies:
 
-   \`\`\`bash
+   ``` bash
    pip install -r requirements.txt
-   \`\`\`
+   ```
 
 4. Set up your MySQL database:
 
@@ -76,29 +76,29 @@ This application allows users to manage their bank accounts through a modern web
 
 5. Run the Flask backend:
 
-   \`\`\`bash
+   ```bash
    python Banking_proj.py
-   \`\`\`
+   ```
 
 ### Frontend Setup
 
 1. Navigate to the \`frontend\` directory:
 
-   \`\`\`bash
+   ```bash
    cd ../frontend
-   \`\`\`
+   ```
 
 2. Install the required dependencies:
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 3. Run the React app:
 
-   \`\`\`bash
+   ```bash
    npm start
-   \`\`\`
+   ```
 
 4. Your app should now be running at \`http://localhost:3000\`.
 
@@ -112,7 +112,7 @@ This application allows users to manage their bank accounts through a modern web
 
 ### Backend Endpoints
 
-- \`POST /add-account\`: Adds a new account.
-- \`GET /view-accounts\`: Retrieves a list of all accounts.
-- \`GET /search-account/<account_number>\`: Retrieves account details for a given account number.
+- `POST /add-account`: Adds a new account.
+- `GET /view-accounts`: Retrieves a list of all accounts.
+- `GET /search-account/<account_number>`: Retrieves account details for a given account number.
 
